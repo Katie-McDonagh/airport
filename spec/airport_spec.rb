@@ -6,11 +6,16 @@ describe Airport do
    expect(subject).to respond_to(:land).with(1).argument
   end
 
-  it 'lands a plane object at the airport' do 
+  # it 'lands a plane object at the airport' do 
+  #   plane = Plane.new
+  #   subject.land(plane)
+  #   expect(subject.hanger[0]).to be_an_instance_of(Plane)
+  # end
+
+  it 'a plane takes off from the airport' do
     plane = Plane.new
     subject.land(plane)
-    expect(subject.hanger[0]).to be_an_instance_of(Plane)
+    subject.take_off(plane)
+    expect(subject.hanger.length).to eq(0)
   end
-
-  
 end
