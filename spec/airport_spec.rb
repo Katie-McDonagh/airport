@@ -27,7 +27,7 @@ describe Airport do
   end
 
   it 'has a default capacity of 3' do
-    expect(subject.capacity).to eq (3)
+    expect(subject.capacity).to eq (Airport::DEFAULT_CAPACITY)
   end
 
   context 'lands multiple planes' do 
@@ -44,7 +44,7 @@ describe Airport do
   
 
   it 'prevents landing when airport is full' do
-    expect(subject.hanger.length).to eq(3)
+    expect(subject.hanger.length).to eq(Airport::DEFAULT_CAPACITY)
   end
 
   it 'prevents a landing when airport is at customised capacity' do 
