@@ -26,26 +26,39 @@ describe Airport do
     expect(subject.is_in_hanger?(plane)).to eq(false)
   end
 
-  it 'prevents landing when airport is full' do
+  it 'has a default capacity of 3' do
+    expect(subject.capacity).to eq (3)
+  end
+
+  context 'lands multiple planes' do 
+
     plane1 = Plane.new
     plane2 = Plane.new
     plane3 = Plane.new
     plane4 = Plane.new
+    subject = Airport.new
     subject.land(plane1)
     subject.land(plane2)
     subject.land(plane3)
     subject.land(plane4)
+  
+
+  it 'prevents landing when airport is full' do
     expect(subject.hanger.length).to eq(3)
   end
 
-  it 'has a default capacity of 3' do
-    expect(subject.capacity).to eq (3)
+  it 'prevents a landing when airport is at customised capacity' do 
+     subject.override_capacity(4)
+     plane4 = Plane.new
+     subject.land(plane4)
+    expect(subject.hanger.length).to eq (4)
   end
   
   it 'can change capacity at anytime' do
     subject.override_capacity(5)
     expect(subject.capacity).to eq (5)
   end 
-    
 
+end
+    
 end
