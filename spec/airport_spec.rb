@@ -8,6 +8,9 @@ describe Airport do
 
   it 'lands a plane object at the airport' do 
     plane = Plane.new
-    expect(subject.land(plane)).to be_an_instance_of(Plane)
+    subject.land(plane)
+    expect(subject.hanger[0]).to be_an_instance_of(Plane)
   end
+
+  
 end
