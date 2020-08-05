@@ -15,4 +15,8 @@ class Airport
     @hanger.delete(plane)
   end
 
+  def is_in_hanger?(plane)
+    @hanger.include?(plane)
+  end
+
 end

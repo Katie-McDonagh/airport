@@ -18,4 +18,12 @@ describe Airport do
     subject.take_off(plane)
     expect(subject.hanger.length).to eq(0)
   end
+
+  it 'confirms plane is no longer at the airport' do
+    plane = Plane.new
+    subject.land(plane)
+    subject.take_off(plane)
+    expect(subject.is_in_hanger?(plane)).to eq(false)
+  end
+
 end
