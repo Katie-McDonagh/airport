@@ -26,4 +26,16 @@ describe Airport do
     expect(subject.is_in_hanger?(plane)).to eq(false)
   end
 
+  it 'prevents landing when airport is full' do
+    plane1 = Plane.new
+    plane2 = Plane.new
+    plane3 = Plane.new
+    plane4 = Plane.new
+    subject.land(plane1)
+    subject.land(plane2)
+    subject.land(plane3)
+    subject.land(plane4)
+    expect(subject.hanger.length).to eq(3)
+  end
+
 end

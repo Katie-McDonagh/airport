@@ -8,7 +8,9 @@ class Airport
   end 
 
   def land(plane = Plane.new)
-    @hanger.push(plane)
+    if @hanger.length < 3
+      @hanger.push(plane)
+    end
   end
 
   def take_off(plane)
