@@ -38,4 +38,10 @@ describe Airport do
     expect(subject.hanger.length).to eq(3)
   end
 
+  it 'has a default capacity of 3' do
+    expect(subject.capacity).to eq (3)
+
+  end
+    
+
 end
