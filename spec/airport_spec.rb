@@ -40,8 +40,12 @@ describe Airport do
 
   it 'has a default capacity of 3' do
     expect(subject.capacity).to eq (3)
-
   end
+  
+  it 'can change capacity at anytime' do
+    subject.override_capacity(5)
+    expect(subject.capacity).to eq (5)
+  end 
     
 
 end
